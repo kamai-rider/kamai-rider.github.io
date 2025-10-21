@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refunds & Cancellation | POONAM TECHNOLOGY</title>
+    <meta name="description" content="Refunds and Cancellation Policy for POONAM TECHNOLOGY.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a class="nav-brand" href="index.html">🍽️ <span>POONAM TECHNOLOGY</span></a>
+            <nav class="nav-links">
+                <a href="index.html#product">Product</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" style="max-width: 900px;">
+            <h1>Refunds & Cancellation Policy</h1>
+            <p class="fine-print">Last updated: <span id="rf-date"></span></p>
+
+            <h2>Subscriptions</h2>
+            <p>All subscriptions are billed in advance. Fees are non-refundable once the billing period starts, except where required by law.</p>
+
+            <h2>Free Trials</h2>
+            <p>If your plan includes a free trial, you will not be charged until the trial ends. Cancel before the trial end to avoid charges.</p>
+
+            <h2>Cancellation</h2>
+            <p>You can cancel anytime from your account or by contacting support. Access remains active until the end of the current billing period.</p>
+
+            <h2>Exceptional Refunds</h2>
+            <p>We may consider refunds in cases of duplicate charges, proven service outage, or billing errors. Contact billing@poonamtechnology.com within 14 days.</p>
+
+            <h2>Contact</h2>
+            <p>Billing support: billing@poonamtechnology.com</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>© <span id="year"></span> POONAM TECHNOLOGY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('rf-date').textContent = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
+

@@ -1,3 +1,41 @@
+# POONAM TECHNOLOGY – WhatsApp Automation for Restaurants & Cloud Kitchens
+
+This is a lightweight static site for POONAM TECHNOLOGY's WhatsApp automation SaaS for restaurants and cloud kitchens. It includes feature sections, pricing with a monthly/yearly toggle, a WhatsApp demo form, responsive styles, and legal pages required for Facebook Business verification.
+
+## Features
+- WhatsApp ordering, chatbot, broadcasts, notifications, multi‑outlet, and integrations.
+- Pricing cards with monthly/yearly switch (JS only, no backend).
+- Demo form that opens WhatsApp with a prefilled message.
+- Legal pages: Privacy, Terms, Cookie Policy, Refunds & Cancellation, Contact.
+- Facebook domain verification meta placeholder in `index.html`.
+- Fully responsive, dark theme, no external build steps.
+
+## Getting Started
+1. Open `index.html` in any modern browser. The page is fully static.
+2. Ensure `styles.css` and `script.js` are in the same folder as `index.html`.
+3. For Facebook Business verification, replace the token in `index.html`:
+   - Find: `<meta name="facebook-domain-verification" content="REPLACE_WITH_FB_TOKEN">`
+   - Replace with your token from Facebook Business Manager.
+
+## Customization
+- Brand name and copy: Edit the text in `index.html` (headings, paragraphs, FAQ).
+- Colors/Theme: Adjust CSS variables at the top of `styles.css`.
+- Pricing amounts: Update `data-monthly` and `data-yearly` in the pricing cards.
+- WhatsApp targets: In `script.js`, replace the `wa.me` URLs with your number, e.g. `https://wa.me/15551234567?text=...`.
+- Legal texts: Update `privacy.html`, `terms.html`, `cookie.html`, `refunds.html`, and `contact.html` with your official addresses, corporate entity details, and contact emails.
+
+## Deployment
+- GitHub Pages: Commit and push, then enable Pages for the repository root.
+- Netlify/Vercel: Drag-and-drop the folder or set the project to deploy the root.
+- Nginx/Apache: Serve the folder as a static site; no server-side code required.
+
+## Notes on Compliance
+- Built on Meta’s official WhatsApp Business API (messaging claims), ensure your production flows and BSP remain compliant with opt-in/opt-out.
+- This landing page collects no data itself; the demo form opens WhatsApp only. For real lead capture, add a backend or a form service.
+
+## License
+MIT
+
 # KamaiRider - Landing Page
 
 🛵 **कमाई भी, भाईचारा भी 💙**

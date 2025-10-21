@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | POONAM TECHNOLOGY</title>
+    <meta name="description" content="Contact POONAM TECHNOLOGY – WhatsApp automation for restaurants and cloud kitchens.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a class="nav-brand" href="index.html">🍽️ <span>POONAM TECHNOLOGY</span></a>
+            <nav class="nav-links">
+                <a href="index.html#product">Product</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" style="max-width: 900px;">
+            <h1>Contact</h1>
+            <p>We’d love to hear from you. For sales, support, or legal questions, reach us using the details below.</p>
+
+            <h2>Company Details</h2>
+            <p>
+                <strong>POONAM TECHNOLOGY</strong><br>
+                Email: hello@poonamtechnology.com<br>
+                Support: support@poonamtechnology.com<br>
+                Legal: legal@poonamtechnology.com<br>
+                Address: To be updated
+            </p>
+
+            <h2>Book a Demo on WhatsApp</h2>
+            <form id="contactDemoForm" class="cta-form">
+                <div class="row">
+                    <input type="text" id="c-name" placeholder="Your name" required>
+                    <input type="text" id="c-business" placeholder="Restaurant / Kitchen name" required>
+                </div>
+                <div class="row">
+                    <input type="tel" id="c-phone" placeholder="Phone (with country code)" required>
+                    <input type="email" id="c-email" placeholder="Work email" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Open WhatsApp</button>
+                <p class="fine-print">You’ll be redirected to WhatsApp with a prefilled message.</p>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>© <span id="year"></span> POONAM TECHNOLOGY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactDemoForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('c-name').value.trim();
+        const business = document.getElementById('c-business').value.trim();
+        const phone = document.getElementById('c-phone').value.trim();
+        const email = document.getElementById('c-email').value.trim();
+        const text = encodeURIComponent(`Contact request for demo\nName: ${name}\nBusiness: ${business}\nPhone: ${phone}\nEmail: ${email}`);
+        window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener');
+    });
+    </script>
+</body>
+</html>
+

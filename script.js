@@ -1,3 +1,80 @@
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+    const closeMenu = () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    };
+    const openMenu = () => {
+        navLinks.classList.add('open');
+        navToggle.setAttribute('aria-expanded', 'true');
+    };
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) closeMenu();
+    });
+}
+
+// Year in footer
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+// Pricing toggle
+const billingToggle = document.getElementById('billingToggle');
+if (billingToggle) {
+    billingToggle.addEventListener('change', (e) => {
+        const yearly = e.target.checked;
+        document.querySelectorAll('.price').forEach(el => {
+            const priceEl = el;
+            const m = priceEl.getAttribute('data-monthly');
+            const y = priceEl.getAttribute('data-yearly');
+            if (m && y) priceEl.textContent = yearly ? y : m;
+        });
+    });
+}
+
+// WhatsApp CTAs (pricing buttons)
+document.querySelectorAll('[data-action="whatsapp"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const plan = btn.getAttribute('data-plan') || 'Plan';
+        const text = encodeURIComponent(`Hi, I'm interested in the ${plan} plan for WhatsApp Automation. Could you share a quick demo?`);
+        const url = `https://wa.me/?text=${text}`;
+        window.open(url, '_blank', 'noopener');
+    });
+});
+
+// Demo form -> open WhatsApp with prefilled message
+const demoForm = document.getElementById('demoForm');
+if (demoForm) {
+    demoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const business = document.getElementById('business').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const lines = [
+            `Name: ${name}`,
+            `Business: ${business}`,
+            `Phone: ${phone}`,
+            `Email: ${email}`,
+            'Please send a WhatsApp demo for ServeMore.'
+        ];
+        const text = encodeURIComponent(lines.join('\n'));
+        const url = `https://wa.me/?text=${text}`;
+        window.open(url, '_blank', 'noopener');
+    });
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -16,19 +93,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        const bg = 'rgba(11,13,18,0.85)';
+        if (currentScroll > 100) {
+            navbar.style.background = bg;
+            navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.35)';
+        } else {
+            navbar.style.background = 'rgba(11,13,18,0.7)';
+            navbar.style.boxShadow = 'none';
+        }
+        lastScroll = currentScroll;
+    });
+}
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -154,8 +232,7 @@ const createMobileMenu = () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🛵 KamaiRider - कमाई भी, भाईचारा भी 💙');
-    console.log('Made with ❤️ for all delivery riders');
+    // no-op
 });
 
 // Add hover effect sounds (optional - commented out)

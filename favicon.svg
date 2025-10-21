@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="POONAM TECHNOLOGY">
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#1a2234"/>
+      <stop offset="100%" stop-color="#0b0d12"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E7D9A6"/>
+      <stop offset="100%" stop-color="#C3A76A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="31" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="30.2" fill="none" stroke="url(#ring)" stroke-width="1.6"/>
+  <g fill="#ffffff" font-family="Inter, system-ui, Arial, sans-serif" font-weight="800" font-size="22" text-anchor="middle" dominant-baseline="central">
+    <text x="32" y="32" letter-spacing="1">PT</text>
+  </g>
+</svg>
+
